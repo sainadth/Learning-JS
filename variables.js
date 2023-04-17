@@ -101,3 +101,50 @@ console.log(myList.length);
 
 //-NoExit -Command "& { Import-Module $env:VSAPPIDDIR\..\Tools\Microsoft.VisualStudio.DevShell.dll}; Enter-VsDevShell -SkipAutomaticLocation -SetDefaultWindowTitle -InstallPath $env:VSAPPIDDIR\..\..\
 ///k ""%VSAPPIDDIR%\..\Tools\VsDevCmd.bat"
+
+const isTwoEven = true;
+console.log(isTwoEven);
+
+/*Integer Literals
+ * 0, 117, 123456789123456789n             (decimal, base 10)
+ * 015, 0001, 0o777777777777n              (octal, base 8)
+ * 0x1123, 0x00111, 0x123456789ABCDEFn     (hexadecimal, "hex" or base 16)
+ * 0b11, 0b0011, 0b11101001010101010101n   (binary, base 2)
+*/
+
+/*Floating-point literals
+ * 3.1415926
+ * .123456789
+ * 3.1E+12
+ * .1e-23
+*/
+
+//Object literals
+
+const sales = "Toyota";
+
+function carTypes(name) {
+	return name === "Honda" ? name : `Sorry, we don't sell ${name}.`;
+}
+
+const car = { myCar: "Saturn", getCar: carTypes("Honda"), special: sales };
+
+console.log(car.myCar); // Saturn
+console.log(car.getCar); // Honda
+console.log(car.special); // Toyota
+const car1 = { manyCars: { a: "Saab", b: "Jeep" }, 7: "Mazda" };
+
+console.log(car1.manyCars.b); // Jeep
+console.log(car1[7]); // Mazda
+
+//Property names that are not valid identifiers cannot be 
+//accessed as a dot(.) property.
+
+const unusualPropertyNames = {
+	'': 'An empty string',
+	'!': 'Bang!'
+}
+//console.log(unusualPropertyNames.'');   // SyntaxError: Unexpected string
+//console.log(unusualPropertyNames.!);    // SyntaxError: Unexpected token !
+console.log(unusualPropertyNames[""]); // An empty string
+console.log(unusualPropertyNames["!"]); // Bang!
